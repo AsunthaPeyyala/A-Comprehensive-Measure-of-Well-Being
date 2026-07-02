@@ -1,0 +1,16 @@
+# 1. Install all required dependencies
+pip install pandas numpy matplotlib seaborn scikit-learn flask
+
+# 2. Train the Linear Regression model (creates models/model.pkl automatically)
+python src/train.py
+
+# 3. Start your Flask web application
+python app.py
+
+# 4. Access the web interface in your browser:
+# http://127.0.0.1:5000/
+
+# Example Web Form Interaction:
+# Input fields: [Enter your environmental / socioeconomic data values]
+# Action: Click the "Predict" button
+# Expected Output: "Predicted Well-Being Score: XXXXX"

@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -7,8 +9,12 @@ from sklearn.linear_model import LinearRegression
 
 import joblib
 
+BASE_DIR = Path(__file__).resolve().parents[1]
+DATASET_PATH = BASE_DIR / "datasets" / "house_price_dataset.csv"
+MODEL_PATH = BASE_DIR / "models" / "model.pkl"
+
 # Read Dataset
-data = pd.read_csv("house_price_dataset.csv")
+data = pd.read_csv(DATASET_PATH)
 
 # Display first rows
 print(data.head())
@@ -42,6 +48,6 @@ prediction = model.predict(X_test)
 print(prediction)
 
 # Save Model
-joblib.dump(model, "model.pkl")
+joblib.dump(model, MODEL_PATH)
 
 print("Model Saved Successfully")

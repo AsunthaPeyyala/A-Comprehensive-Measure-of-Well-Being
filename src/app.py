@@ -1,10 +1,16 @@
+from pathlib import Path
+
 from flask import Flask, render_template, request
 import joblib
 
-app = Flask(__name__)
+BASE_DIR = Path(__file__).resolve().parents[1]
+MODEL_PATH = BASE_DIR / "models" / "model.pkl"
+TEMPLATES_DIR = BASE_DIR / "templates"
+
+app = Flask(__name__, template_folder=str(TEMPLATES_DIR))
 
 # Load model
-model = joblib.load("model.pkl")
+model = joblib.load(MODEL_PATH)
 
 # Home Page
 @app.route('/')
